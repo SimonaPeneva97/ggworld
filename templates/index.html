@@ -1,11 +1,17 @@
 {% extends 'base.html' %}
 
-{% block container %}
-    <h1>🎮 Welcome to GGWorld 🎮</h1>
+{% block hero_buttons %}
+<div class="hero-buttons">
+    <h1> Welcome to GGWorld </h1>
     <p>Your ultimate gaming hub.</p>
 
-    <button onclick="location.href='/chat/'">Go to Chat</button>
-    <button onclick="location.href='/games/'">Browse Games</button>
-    <button onclick="location.href='/reviews/'">Read Reviews</button>
+    <button onclick="location.href='{% url 'chat' %}'">Go to Chat</button>
+    <button onclick="location.href='{% url 'games_list' %}'">Browse Games</button>
+    <button onclick="location.href='{% url 'reviews_list' %}'">Read Reviews</button>
+</div>
+{% endblock %}
+
+{% block container %}
+
 {% endblock %}
 

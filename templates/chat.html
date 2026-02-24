@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block container %}
+<h1>Chat Room</h1>
+
+{% for message in messages %}
+    <p>
+        <strong>{{ message.username }}</strong>:
+        {{ message.message }}
+    </p>
+{% endfor %}
+
+<h2>Send Message</h2>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Send</button>
+</form>
+
+{% endblock %}

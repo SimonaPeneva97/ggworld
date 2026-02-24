@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block container %}
+<h1>{{ game.title }}</h1>
+
+<div style="max-width:600px; margin:auto; background:#222; padding:20px; border-radius:10px;">
+    {% if game.image %}
+    <img src="{{ game.image.url }}" alt="{{ game.title }}" style="width:100%; border-radius:10px;">
+    {% endif %}
+    <p><strong>Genre:</strong> {{ game.genre }}</p>
+    <p><strong>Price:</strong> ${{ game.price }}</p>
+    <p>{{ game.description }}</p>
+</div>
+
+<h2>Reviews</h2>
+<div style="max-width:600px; margin:auto;">
+    {% for review in reviews %}
+        <div style="background:#333; padding:15px; border-radius:10px; margin-bottom:15px;">
+            <strong>{{ review.username }}</strong> rated <strong>{{ review.rating }}/5</strong>
+            <p>{{ review.comment }}</p>
+        </div>
+    {% empty %}
+        <p>No reviews yet. Be the first to review!</p>
+    {% endfor %}
+</div>
+
+<h3>Add a Review</h3>
+<form method="POST" style="max-width:600px; margin:auto; background:#222; padding:20px; border-radius:10px;">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" style="background:#f90; border:none; padding:10px 20px; border-radius:5px; cursor:pointer;">Submit Review</button>
+</form>
+
+<a href="{% url 'games_list' %}" style="display:inline-block; margin-top:20px; color:#f90;">Back to Games</a>
+{% endblock %}

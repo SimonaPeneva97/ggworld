@@ -4,7 +4,7 @@ from games.models import Game
 
 
 class Review(models.Model):
-    game = models.ForeignKey(Game, on_delete=models.CASCADE, related_name='reviews')
+    models.ForeignKey(Game, on_delete=models.CASCADE, related_name='reviews')
     username = models.CharField(
         max_length=100,
     )

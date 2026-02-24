@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block container %}
+<h1>⭐ Latest Reviews</h1>
+
+<div style="max-width:600px; margin:auto;">
+
+    {% for review in reviews %}
+        <div style="background:#222; padding:20px; border-radius:10px; margin-bottom:20px;">
+            <h3>{{ review.username }} - {{ review.rating }}/10</h3>
+            <p>{{ review.comment }}</p>
+        </div>
+    {% empty %}
+        <p>No reviews yet. Be the first to review!</p>
+    {% endfor %}
+
+    <h2>Add a Review</h2>
+    <form method="POST" style="background:#333; padding:20px; border-radius:10px; margin-top:20px;">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" style="background:#f90; border:none; padding:10px 20px; border-radius:5px; cursor:pointer;">Submit Review</button>
+    </form>
+
+</div>
+{% endblock %}
+

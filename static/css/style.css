@@ -1,0 +1,97 @@
+body {
+    margin: 0;
+    font-family: 'Orbitron', sans-serif;
+    color: white;
+    background: url("../images/game-image.jpg") no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+}
+
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    backdrop-filter: blur(10px);
+    background: rgba(0,0,0,0.6);
+    border-bottom: 1px solid rgba(0,255,204,0.3);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+header .logo {
+    font-size: 24px;
+    font-weight: 800;
+    color: #00ffcc;
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 30px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+header nav a:hover {
+    color: #00ffcc;
+}
+
+.hero-buttons {
+    text-align: center;
+    padding: 150px 20px 80px 20px;
+}
+
+.hero-buttons h1 {
+    font-size: 48px;
+    color: #00ffcc;
+    margin-bottom: 20px;
+}
+
+.hero-buttons p {
+    font-size: 20px;
+    margin-bottom: 40px;
+}
+
+.hero-buttons button {
+    background: linear-gradient(45deg, #00ffcc, #0099ff);
+    border: none;
+    padding: 15px 30px;
+    margin: 10px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    color: black;
+    font-size: 16px;
+}
+
+.hero-buttons button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #00ffcc;
+}
+
+main {
+    max-width: 1100px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: rgba(0,0,0,0.7);
+    border-top: 1px solid rgba(0,255,204,0.2);
+}

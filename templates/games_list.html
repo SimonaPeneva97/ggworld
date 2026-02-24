@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block container %}
+<h1>All Games</h1>
+
+<div style="display:flex; flex-wrap:wrap; gap:20px;">
+    {% for game in games %}
+    <div style="background:#222; padding:20px; border-radius:10px; width:250px;">
+        {% if game.image %}
+        <img src="{{ game.image.url }}" alt="{{ game.title }}" style="width:100%; border-radius:10px;">
+        {% endif %}
+        <h3>{{ game.title }}</h3>
+        <p>Genre: {{ game.genre }}</p>
+        <p>Price: ${{ game.price }}</p>
+        <a href="{% url 'game_details' game.pk %}" style="color:#f90;">View Details</a>
+    </div>
+    {% empty %}
+    <p>No games yet. Add one!</p>
+    {% endfor %}
+</div>
+
+<a href="{% url 'add_game' %}" style="display:inline-block; margin-top:20px; background:#f90; padding:10px 20px; color:#000; text-decoration:none; border-radius:5px;">Add New Game</a>
+{% endblock %}
